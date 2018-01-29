@@ -11,4 +11,8 @@ namespace falcon\core\base;
 
 class AssetBundle extends \yii\web\AssetBundle {
 
+	public function init() {
+		$reflector        = new \ReflectionClass($this::className());
+		$this->sourcePath = dirname($reflector->getFileName()) . '/../views/web/';
+	}
 }

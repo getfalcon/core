@@ -22,6 +22,8 @@ class Application extends \yii\console\Application {
 		/** @var AttachModulesMigrations $attachModulesMigrations */
 		$attachModulesMigrations = $container->get(AttachModulesMigrations::class);
 
+		\Yii::setAlias('falcon', \Yii::$app->basePath . '/modules/falcon');
+
 		\Yii::$container->set(MigrateController::class, [
 			'migrationNamespaces' => $attachModulesMigrations->get()
 		]);

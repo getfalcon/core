@@ -30,7 +30,7 @@ class Application extends \yii\web\Application {
 
 	public function coreComponents() {
 		$return = [
-			'view' => ['class' => 'core\frontend\View'],
+			'view' => ['class' => 'falcon\core\frontend\View'],
 		];
 
 		return ArrayHelper::merge(parent::coreComponents(), $return);

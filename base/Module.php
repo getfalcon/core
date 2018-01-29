@@ -14,7 +14,7 @@ use Yii;
 class Module extends \yii\base\Module implements ModuleInterface {
 	const MODULE_ETC_DIR = 'etc';
 	const MODULE_I18N_DIR = 'i18n';
-	const MODULE_VIEW_DIR = 'view';
+	const MODULE_VIEW_DIR = 'views';
 	const MODULE_CONTROLLER_DIR = 'Controller';
 
 	/**
@@ -65,7 +65,7 @@ class Module extends \yii\base\Module implements ModuleInterface {
 
 		if ($this->_viewPath === null) {
 
-			$views = DIRECTORY_SEPARATOR . 'views';
+			$views = '';
 
 			if (Yii::$app instanceof \falcon\core\frontend\Application) {
 				$views .= DIRECTORY_SEPARATOR . 'frontend';
@@ -75,11 +75,7 @@ class Module extends \yii\base\Module implements ModuleInterface {
 				$views .= DIRECTORY_SEPARATOR . 'backend';
 			}
 
-			$class = get_class($this);
-			if (($pos = strrpos($class, '\\')) !== false) {
-				$path            = str_replace('\\', DIRECTORY_SEPARATOR, substr($class, 0, $pos)) . $views;
-				$this->_viewPath = $path;
-			}
+			$this->_viewPath = $this->getDir(self::MODULE_VIEW_DIR) . $views;
 		}
 
 		return $this->_viewPath;
