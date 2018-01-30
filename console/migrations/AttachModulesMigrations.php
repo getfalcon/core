@@ -44,13 +44,14 @@ class AttachModulesMigrations extends Component {
 		}
 	}
 
-	/**
-	 * @param string $module Module ID
-	 *
-	 * @return string
-	 */
+    /**
+     * @param string $module Module ID
+     *
+     * @throws \ReflectionException
+     */
 	protected function add($module) {
-		$namespace                            = new \ReflectionClass(get_class(Yii::$app->getModule($module)));
+        $namespace = new \ReflectionClass(get_class(Yii::$app->getModule($module)));
+
 		$this->migrationNamespaces[ $module ] = $namespace->getNamespaceName() . '\\' . 'migrations';
 	}
 

@@ -14,7 +14,8 @@ use yii\base\Component;
 use yii\base\InvalidConfigException;
 use yii\helpers\ArrayHelper;
 
-class UrlRulesLoader extends Component {
+class UrlRulesLoader extends Component
+{
 
 	const ROUTE_BACKEND = 'backend';
 	const ROUTE_FRONTEND = 'frontend';
@@ -22,7 +23,7 @@ class UrlRulesLoader extends Component {
 	/**
 	 * @var string the default module name from '/' url
 	 */
-	public $baseRouteFrontendModuleName = 'frontend';
+    public $baseRouteFrontendModuleName = 'Falcon_Frontend';
 
 	/**
 	 * @var string the cache key that will be used to cache storage values
@@ -71,7 +72,7 @@ class UrlRulesLoader extends Component {
 					}
 
 					if (file_exists($fileBackend)) {
-						$this->addRule(Yaml::parse(file_get_contents($fileBackend)), $name, self::ROUTE_BACKEND, \falcon\core\backend\UrlRule::class);
+                        $this->addRule(Yaml::parse(file_get_contents($fileBackend)), $name, self::ROUTE_BACKEND, \falcon\backend\app\UrlRule::class);
 					}
 				}
 

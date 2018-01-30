@@ -38,11 +38,11 @@ class Module extends \yii\base\Module implements ModuleInterface {
 				$controllers .= '\\console';
 			}
 
-			if (Yii::$app instanceof \falcon\core\frontend\Application) {
+            if (Yii::$app instanceof \falcon\frontend\app\Application) {
 				$controllers .= '\\frontend';
 			}
 
-			if (Yii::$app instanceof \falcon\core\backend\Application) {
+            if (Yii::$app instanceof \falcon\backend\app\Application) {
 				$controllers .= '\\backend';
 			}
 
@@ -57,7 +57,7 @@ class Module extends \yii\base\Module implements ModuleInterface {
 	 * {@inheritdoc}
 	 */
 	public function getViewPath() {
-		if ($this instanceof \falcon\core\frontend\Application || $this instanceof \falcon\core\backend\Application) {
+        if ($this instanceof \falcon\frontend\app\Application || $this instanceof \falcon\backend\app\Application) {
 			$this->_viewPath = '@app/views';
 
 			return $this->_viewPath;
@@ -67,11 +67,11 @@ class Module extends \yii\base\Module implements ModuleInterface {
 
 			$views = '';
 
-			if (Yii::$app instanceof \falcon\core\frontend\Application) {
+            if (Yii::$app instanceof \falcon\frontend\app\Application) {
 				$views .= DIRECTORY_SEPARATOR . 'frontend';
 			}
 
-			if (Yii::$app instanceof \falcon\core\backend\Application) {
+            if (Yii::$app instanceof \falcon\backend\app\Application) {
 				$views .= DIRECTORY_SEPARATOR . 'backend';
 			}
 

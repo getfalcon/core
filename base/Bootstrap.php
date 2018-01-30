@@ -11,8 +11,8 @@ namespace falcon\core\base;
 use Yii;
 use yii\web\Request;
 use yii\web\UrlNormalizer;
-use falcon\core\backend\Application as BackendApplication;
-use falcon\core\frontend\Application as FrontendApplication;
+use falcon\backend\app\Application as BackendApplication;
+use falcon\frontend\app\Application as FrontendApplication;
 
 class Bootstrap {
 
