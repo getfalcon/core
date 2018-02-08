@@ -42,8 +42,8 @@ class FileResolver implements FileResolverInterface {
 
 			$path .= $filename;
 
-			if (file_exists($path)) {
-				$return = ArrayHelper::merge($return, Yaml::parse(file_get_contents($path)));
+            if (file_exists($path) && ($yaml = Yaml::parse(file_get_contents($path)))) {
+                $return = ArrayHelper::merge($return, $yaml);
 			}
 		}
 

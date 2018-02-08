@@ -22,7 +22,8 @@ class Converter
     public function convert(array $source)
     {
         $output = [];
-        foreach ($source['events'] as $eventConfig) {
+        $events = ArrayHelper::getValue($source, 'events', []);
+        foreach ($events as $eventConfig) {
             $eventName = ArrayHelper::getValue($eventConfig, ['event', 'name'], '');
 
             $eventObservers = [];

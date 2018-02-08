@@ -8,12 +8,10 @@
 
 namespace falcon\core;
 
-use falcon\config\models\ConfigData;
 use falcon\core\console\Application;
 use falcon\core\event\Manager;
 use falcon\core\module\ModuleLoader;
 use yii\base\BootstrapInterface;
-use yii\base\Event;
 
 class Bootstrap implements BootstrapInterface
 {
@@ -38,8 +36,8 @@ class Bootstrap implements BootstrapInterface
 
         // Init Config
         if (!$app instanceof Application) {
-            $app->get('errorHandler')->exceptionView = dirname(__FILE__) . '/../views/layouts/exception.php';
-            $app->get('errorHandler')->callStackItemView = dirname(__FILE__) . '/../views/layouts/callStackItem.php';
+            $app->get('errorHandler')->exceptionView = dirname(__FILE__) . '/views/layouts/exception.php';
+            $app->get('errorHandler')->callStackItemView = dirname(__FILE__) . '/views/layouts/callStackItem.php';
         }
     }
 }

@@ -40,8 +40,6 @@ class Manager
                 $method = ArrayHelper::getValue($observer, 'method', 'execute');
                 $append = ArrayHelper::getValue($observer, 'append', true);
 
-                var_dump($instance, $eventName);
-
                 Event::on($class, $eventName, [$instance, $method], null, $append);
             }
         }
